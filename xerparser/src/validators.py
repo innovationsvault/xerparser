@@ -34,7 +34,7 @@ def int_or_zero(value: str) -> int:
     if value == "" or value is None:
         return 0
     if isinstance(value, float):
-        int(value)
+        round(value)
     return int(value)
 
 

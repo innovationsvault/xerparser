@@ -64,7 +64,7 @@ class Xer:
         self.wbs_nodes: dict[str, PROJWBS] = self._get_wbs_nodes()
         self.tasks: dict[str, TASK] = self._get_tasks()
         self.relationships: dict[str, TASKPRED] = self._get_relationships()
-        self.curve: dict[str, RSRCCURVDATA] = self._get_attr("RSRCCURVDATA")
+        self.resource_curves: dict[str, RSRCCURVDATA] = self._get_attr("RSRCCURVDATA")
 
         self._set_proj_activity_codes()
         self._set_proj_codes()
