@@ -10,6 +10,7 @@ TABLE_UID_MAP = {
     "PROJECT": "proj_id",
     "PROJWBS": "wbs_id",
     "RSRC": "rsrc_id",
+    "RSRCCURVDATA":"curv_id", 
     "SCHEDOPTIONS": "proj_id",
     "TASK": "task_id",
     "TASKPRED": "task_pred_id",

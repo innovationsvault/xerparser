@@ -18,6 +18,7 @@ from xerparser.schemas.pcatval import PCATVAL
 from xerparser.schemas.project import PROJECT
 from xerparser.schemas.projwbs import PROJWBS
 from xerparser.schemas.rsrc import RSRC
+from xerparser.schemas.rsrccurv import RSRCCURVDATA
 from xerparser.schemas.schedoptions import SCHEDOPTIONS
 from xerparser.schemas.task import TASK, LinkToTask
 from xerparser.schemas.taskfin import TASKFIN
@@ -63,6 +64,7 @@ class Xer:
         self.wbs_nodes: dict[str, PROJWBS] = self._get_wbs_nodes()
         self.tasks: dict[str, TASK] = self._get_tasks()
         self.relationships: dict[str, TASKPRED] = self._get_relationships()
+        self.curve: dict[str, RSRCCURVDATA] = self._get_attr("RSRCCURVDATA")
 
         self._set_proj_activity_codes()
         self._set_proj_codes()
@@ -150,9 +152,13 @@ class Xer:
     def _get_rsrcs(self) -> dict[str, RSRC]:
         rsrcs: dict[str, RSRC] = self._get_attr("RSRC")
         for rsrc in rsrcs.values():
-            if rsrc.parent_rsrc_id:
-                rsrc.parent = rsrcs[rsrc.parent_rsrc_id]
-                rsrc.parent.addChild(rsrc)
+            if rsrc.parent_rsrc_id: #FIXME Found resource where there is a parent key, but no parent
+                try:
+                    rsrc.parent = rsrcs[rsrc.parent_rsrc_id]
+                except KeyError:
+                    rsrc.parent = None
+                if rsrc.parent:
+                    rsrc.parent.addChild(rsrc)
         return rsrcs
 
     def _get_tasks(self) -> dict[str, TASK]:

@@ -134,3 +134,6 @@ dmypy.json
 .vscode/
 tests/fixtures/*.json
 tests/config.py
+
+#non-package testing
+simple_test.py

@@ -31,6 +31,7 @@ def find_xer_errors(tables: dict) -> list[str]:
     - Non-existent calendars assigned to activities
     """
     # This list of required tables may be subjective
+    # TODO: Add in resource curve required pairing
     # TODO: Add ability to pass in your own list of required tables.
 
     REQUIRED_TABLES = {"CALENDAR", "PROJECT", "PROJWBS", "TASK", "TASKPRED"}

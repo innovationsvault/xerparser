@@ -51,6 +51,7 @@ class TASKRSRC:
         )
         self.act_this_per_cost: float = float(data["act_this_per_cost"])
         self.act_this_per_qty: float = float(data["act_this_per_qty"])
+        self.curv_id: str = data["curv_id"]
         self.rsrc_type: str = data["rsrc_type"]
         self.account: ACCOUNT | None = account_or_none(account)
         self.resource: RSRC = resource

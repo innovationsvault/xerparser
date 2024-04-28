@@ -16,6 +16,7 @@ from xerparser.schemas.schedoptions import SCHEDOPTIONS
 from xerparser.schemas.task import TASK
 from xerparser.schemas.taskpred import TASKPRED
 from xerparser.schemas.taskrsrc import TASKRSRC
+from xerparser.schemas.rsrccurv import RSRCCURVDATA
 from xerparser.schemas.udftype import UDFTYPE
 from xerparser.scripts.decorators import rounded
 from xerparser.src.validators import date_format, optional_date, optional_str
@@ -81,6 +82,8 @@ class PROJECT:
         """Project Relationships"""
         self.resources: list[TASKRSRC] = []
         """Activity Resources"""
+        self.curve: list[RSRCCURVDATA] = []
+        """Task Resource Curve Profiles"""
         self.wbs_nodes: list[PROJWBS] = []
         """Project Work Breakdown Structure"""
         # self.wbs_root: PROJWBS | None = None

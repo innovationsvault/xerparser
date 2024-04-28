@@ -33,6 +33,8 @@ def optional_int(value: str) -> int | None:
 def int_or_zero(value: str) -> int:
     if value == "" or value is None:
         return 0
+    if isinstance(value, float):
+        int(value)
     return int(value)
 
 

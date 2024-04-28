@@ -1,6 +1,16 @@
 
 # Changelog - xerparser
 
+## 0.11.1 - 2024-04-28
+
+### Added
+* Exposed table 'RSRCCURVDATA' in xer as well as link to 'TASKRSRC'.
+
+### Changes
+* Added float check to int_or_zero() in validators.py when caller is using float obj
+* Changed resouce add parent to include try/except for when the parent id is not in the xer resource table.
+Currently sets parent to none.
+
 ## 0.11.0 - 2024-04-28
 
 * Updated type hints, which now requires a minimum of Python 3.11.
